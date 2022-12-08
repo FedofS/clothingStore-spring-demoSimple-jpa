@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>orderForm</title>
+</head>
+<body>
+
+<form method="POST" th:action="@{/orders}" th:object="${basket}">
+
+    <h1>Order your clothing Store.</h1>
+
+    <a th:href="@{/}" id="another">Repeat selection Basket.</a><br><br>
+
+   <sp>Basket name: </sp> <span th:text="${basket.name}">Basket name:</span>
+
+    <ul>
+        <li th:each="product : ${basket.products}">
+            <span th:text="${product.name}">product</span></li>
+    </ul>
+
+
+    <br/>
+    <input type="submit" value="Submit Basket"/>
+</form>
+</body>
+</html>

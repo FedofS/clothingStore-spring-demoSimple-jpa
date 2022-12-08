@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>CLOTHING FORM</title>
+    <link rel="stylesheet" th:href="@{/styles.css}" />
+</head>
+<body>
+
+<form method="POST" th:object="${basket}">
+
+
+    <div class="grid">
+        <div class="basket-group" id="clothing">
+            <h3>Designate your CLOTHING:</h3>
+            <div th:each="product : ${SHOES}">
+                <input th:field="*{products}" type="checkbox"
+
+                       th:value="${product.id}"/>
+                <span th:text="${product.name}">PRODUCT</span><br/>
+            </div>
+        </div>
+
+    </div>
+    <div>
+        <h3>Name your product basket:</h3>
+        <input type="text" th:field="*{name}"/>
+        <br/><br/><br/>
+        <button>Submit Your Basket</button>
+    </div>
+</form>
+</body>
+</html>
